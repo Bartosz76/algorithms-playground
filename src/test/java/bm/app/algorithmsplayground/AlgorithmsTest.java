@@ -10,7 +10,7 @@ class AlgorithmsTest {
     Algorithms algorithms;
 
     @Test
-    void shouldReverseGivenString() {
+    void shouldReverseAGivenString() {
         //given
         String givenString = "Pikachu";
         String expectedString = "uhcakiP";
@@ -18,6 +18,17 @@ class AlgorithmsTest {
         String result = algorithms.reverseAString(givenString);
         //then
         assertThat(result).isEqualTo(expectedString);
+    }
+    
+    @Test
+    void shouldReverseAGivenNumber() {
+        //given
+        int givenNumber = 54867;
+        int expectedResult = 76845;
+        //when
+        int result = algorithms.reverseANumber(givenNumber);
+        //then
+        assertThat(result).isEqualTo(expectedResult);
     }
 
     @BeforeEach
