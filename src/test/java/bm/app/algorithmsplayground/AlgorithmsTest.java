@@ -42,6 +42,17 @@ class AlgorithmsTest {
         assertThat(result).isEqualTo(expectedResult);
     }
 
+    @Test
+    void recursionShouldReverseAGivenNumber() {
+        //given
+        int givenNumber = 7431;
+        int expectedResult = 1347;
+        //when
+        int result = algorithms.reverseANumberRecursion(givenNumber);
+        //then
+        assertThat(result).isEqualTo(expectedResult);
+    }
+
     @BeforeEach
     void setUp() {
         algorithms = new Algorithms();

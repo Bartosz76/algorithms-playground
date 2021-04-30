@@ -3,6 +3,7 @@ package bm.app.algorithmsplayground;
 public class Algorithms {
 
     public static void main(String[] args) {
+
     }
 
     /**
@@ -60,5 +61,27 @@ public class Algorithms {
             reversed = reversed * 10 + digit;
         }
         return reversed;
+    }
+
+    /**
+     * Reversing a number using recursion.
+     */
+    public int reverseANumberRecursion(int number) {
+
+        int lastDigit, numberOfDigits, sign = 1;
+
+        if(number < 0){
+            number = number * -1;
+            sign = -1;
+        }
+        if(number < 10)
+            return number*sign;
+
+        lastDigit = number % 10;
+        number = number / 10;
+        numberOfDigits = (int) (Math.log10(number) + 1);
+
+        return (int)(lastDigit*Math.pow(10, numberOfDigits)
+                + reverseANumberRecursion(number)) * sign;
     }
 }
