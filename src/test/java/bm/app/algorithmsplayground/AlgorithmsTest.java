@@ -19,14 +19,25 @@ class AlgorithmsTest {
         //then
         assertThat(result).isEqualTo(expectedString);
     }
-    
+
     @Test
-    void shouldReverseAGivenNumber() {
+    void whileLoopShouldReverseAGivenNumber() {
         //given
         int givenNumber = 54867;
         int expectedResult = 76845;
         //when
-        int result = algorithms.reverseANumber(givenNumber);
+        int result = algorithms.reverseANumberWhileLoop(givenNumber);
+        //then
+        assertThat(result).isEqualTo(expectedResult);
+    }
+
+    @Test
+    void forLoopShouldReverseAGivenNumber() {
+        //given
+        int givenNumber = 876;
+        int expectedResult = 678;
+        //when
+        int result = algorithms.reverseANumberForLoop(givenNumber);
         //then
         assertThat(result).isEqualTo(expectedResult);
     }
