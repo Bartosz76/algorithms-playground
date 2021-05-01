@@ -68,20 +68,9 @@ public class Algorithms {
      */
     public int reverseANumberRecursion(int number) {
 
-        int lastDigit, numberOfDigits, sign = 1;
-
-        if(number < 0){
-            number = number * -1;
-            sign = -1;
+        if (number == 0)return 0;
+        else {
+            return number % 10 * (int) Math.pow(10, (int) Math.log10(number)) + reverseANumberRecursion(number /10 );
         }
-        if(number < 10)
-            return number*sign;
-
-        lastDigit = number % 10;
-        number = number / 10;
-        numberOfDigits = (int) (Math.log10(number) + 1);
-
-        return (int)(lastDigit*Math.pow(10, numberOfDigits)
-                + reverseANumberRecursion(number)) * sign;
     }
 }
