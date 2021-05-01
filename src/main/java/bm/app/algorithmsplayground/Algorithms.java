@@ -40,9 +40,9 @@ public class Algorithms {
         int digit = 0;
 
         while(number != 0) {
-            digit = number % 10;               // This will yield the remnant of e.g. 1234 / 10... so 4.
-            reversed = reversed * 10 + digit;  // Reversed, first being 0 will not be changed when multiplied
-            number /= 10;                      // by 10 the first time.
+            digit = number % 10;
+            reversed = reversed * 10 + digit;
+            number /= 10;
         }
         return reversed;
     }
@@ -68,9 +68,20 @@ public class Algorithms {
      */
     public int reverseANumberRecursion(int number) {
 
-        if (number == 0)return 0;
+        if (number == 0){
+            return 0;
+        }
         else {
             return number % 10 * (int) Math.pow(10, (int) Math.log10(number)) + reverseANumberRecursion(number /10 );
         }
+    }
+
+    /**
+     * Reversing a number by taking it as a String.
+     */
+    public int reverseANumberWithStringParameter(String number) {
+
+        StringBuilder stringBuilder = new StringBuilder(number).reverse();
+        return Integer.parseInt(stringBuilder.toString());
     }
 }

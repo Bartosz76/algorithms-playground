@@ -1,6 +1,7 @@
 package bm.app.algorithmsplayground;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -10,6 +11,7 @@ class AlgorithmsTest {
     Algorithms algorithms;
 
     @Test
+    @DisplayName("Should reverse a given String.")
     void shouldReverseAGivenString() {
         //given
         String givenString = "Pikachu";
@@ -21,7 +23,8 @@ class AlgorithmsTest {
     }
 
     @Test
-    void whileLoopShouldReverseAGivenNumber() {
+    @DisplayName("Should reverse a provided number by using a while loop.")
+    void shouldReverseAGivenNumberWithWhileLoop() {
         //given
         int givenNumber = 54867;
         int expectedResult = 76845;
@@ -32,7 +35,8 @@ class AlgorithmsTest {
     }
 
     @Test
-    void forLoopShouldReverseAGivenNumber() {
+    @DisplayName("Should reverse a provided number by using a for loop.")
+    void shouldReverseAGivenNumberWithForLoop() {
         //given
         int givenNumber = 876;
         int expectedResult = 678;
@@ -43,12 +47,25 @@ class AlgorithmsTest {
     }
 
     @Test
-    void recursionShouldReverseAGivenNumber() {
+    @DisplayName("Should reverse a given number by using recursion.")
+    void shouldReverseAGivenNumberWithRecursion() {
         //given
         int givenNumber = 7431;
         int expectedResult = 1347;
         //when
         int result = algorithms.reverseANumberRecursion(givenNumber);
+        //then
+        assertThat(result).isEqualTo(expectedResult);
+    }
+
+    @Test
+    @DisplayName("Should reverse a given number by taking the input as a String.")
+    void shouldReverseAGivenNumberWithStringParameter() {
+        //given
+        String number = "69546";
+        int expectedResult = 64596;
+        //when
+        int result = algorithms.reverseANumberWithStringParameter(number);
         //then
         assertThat(result).isEqualTo(expectedResult);
     }
