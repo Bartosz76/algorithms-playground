@@ -1,6 +1,7 @@
 package bm.app.algorithmsplayground;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -10,6 +11,7 @@ class SortingAlgorithmsTest {
     SortingAlgorithms sortingAlgorithms;
 
     @Test
+    @DisplayName("The provided collection should be sorted with the help of the Mergesort.")
     void shouldSortTheProvidedCollectionByMergeSort() {
         //given
         Integer[] providedArray = {23, 5, 6, 21, 8, 76, 3, 21};
@@ -21,6 +23,7 @@ class SortingAlgorithmsTest {
     }
 
     @Test
+    @DisplayName("The provided collection should be sorted with the help of the Insertion sort in its simple version.")
     void shouldSortTheProvidedCollectionByInsertionSortSimpleWay() {
         //given
         Integer[] providedArray = {9, 18, 2, 3, 56, 213, 1, 0, 0};
@@ -32,6 +35,7 @@ class SortingAlgorithmsTest {
     }
 
     @Test
+    @DisplayName("A select part of the provided collection should be sorted with the help of the Insertion sort in its simple version.")
     void shouldSortOnlyAPartOfTheProvidedCollectionByInsertionSortSimpleWay() {
         //given
         Integer[] providedArray = {287, 2, 3, 456, 2, 78};
@@ -43,6 +47,7 @@ class SortingAlgorithmsTest {
     }
 
     @Test
+    @DisplayName("The provided collection should be sorted with the help of the Insertion sort in its improved version.")
     void shouldSortTheProvidedCollectionByInsertionSortImprovedWay() {
         //given
         Integer[] providedArray = {3, 98, 6, 34, 235, 0, 8, 0, 433};
