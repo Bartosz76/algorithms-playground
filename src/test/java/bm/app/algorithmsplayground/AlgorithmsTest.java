@@ -70,6 +70,17 @@ class AlgorithmsTest {
         assertThat(result).isEqualTo(expectedResult);
     }
 
+    @Test
+    void shouldFindTheLongestCommonPrefix() {
+        //given
+        String[] arrayOfString = {"skis", "skirt", "sky", "skin"};
+        String expectedResult = "sk";
+        //when
+        String result = algorithms.findTheLongestCommonPrefix(arrayOfString);
+        //then
+        assertThat(result).isEqualTo(expectedResult);
+    }
+
     @BeforeEach
     void setUp() {
         algorithms = new Algorithms();

@@ -84,4 +84,27 @@ public class Algorithms {
         StringBuilder stringBuilder = new StringBuilder(number).reverse();
         return Integer.parseInt(stringBuilder.toString());
     }
+
+    /**
+     * Finding the longest common prefix for an array of Strings.
+     */
+    public String findTheLongestCommonPrefix(String[] arrayOfStrings) {
+        if(arrayOfStrings.length == 0){
+            return "";
+        }
+        // Initially the output assumes the value of the first element. I will compare the following ones to it.
+        String output = arrayOfStrings[0];
+        // Iterate through the array, omitting the first element as it's the one others are being compared to.
+        for(int i = 1; i < arrayOfStrings.length; i++){
+            // If indexOf() returns 0, it means that the String being checked begins with the provided
+            // String. So it will iterate through all the elements over and over again, cutting the
+            // last char of the String output as long as String output matches the beginning of every
+            // String in the array, which will be indicated by indexOf() being equal to 0!
+            while(arrayOfStrings[i].indexOf(output) != 0){
+                output = output.substring(0, output.length() - 1);
+            }
+        }
+        return output;
+    }
+
 }
