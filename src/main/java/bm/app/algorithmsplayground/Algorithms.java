@@ -136,7 +136,50 @@ public class Algorithms {
         return answer;
     }
 
-
-
-
+    /**
+     * A function that given a String, consisting of letters 'a' and/or 'b', returns
+     * true when occurences of 'a' are before 'b'.
+     */
+    public boolean ifOccurencesOfAAreBeforeB(String providedString) {
+        int length = providedString.length() - 1;
+        // Declare support variables to "keep the state".
+        int index = 0;
+        // This variable will be changed (or not) depending on which letter, 'a' or 'b'
+        // will be the last.
+        int state = 1;
+        int bMarker = 0;
+        // Iterate through all characters of the provided String looking for occurences
+        // of every letter.
+        while (length >= 0) {
+            if (providedString.charAt(index) == 'a') {
+                // When I find 'a', we increment i, to keep
+                // iterating.
+                index++;
+                length--;
+                // If the expected state of bMarker is met, I break the
+                // loop because that state (bMarker being 1) can happen only if a found
+                // character is 'b' and since I found myself in this 'if' again...
+                // It means that the following character was 'a'. Which means we're
+                // returning 'false'.
+                if (bMarker == 1) {
+                    state = 0;
+                    break;
+                }
+            } else if (providedString.charAt(index) == 'b') {
+                // If 'b' was found, we change bMarker to indicate that and we go back
+                // into the loop with that information.
+                bMarker = 1;
+                index++;
+                length--;
+            }
+        }
+        // state can change from 1 to 0 only if the loop every fell into 'if' 'b' loop
+        // and then returned to 'if' 'a' loop. If that happened, that means there was an
+        // occurence of 'a' after an occurence of 'b'.
+        if (state == 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }

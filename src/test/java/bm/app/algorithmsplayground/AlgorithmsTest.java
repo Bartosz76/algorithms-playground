@@ -71,6 +71,7 @@ class AlgorithmsTest {
     }
 
     @Test
+    @DisplayName("Should find the longest common prefix of all String provided within the array.")
     void shouldFindTheLongestCommonPrefix() {
         //given
         String[] arrayOfString = {"skis", "skirt", "sky", "skin"};
@@ -82,7 +83,9 @@ class AlgorithmsTest {
     }
 
     @Test
-    void shouldRemoveOneCharacterToCreateLexigraphicallyTheSmallestPossibleString() {
+    @DisplayName("Should remove one character of a provided String in such a manner that the" +
+            "yielded result will be the smallest possible String")
+    void shouldRemoveOneCharacterToCreateLexicographicallyTheSmallestPossibleString() {
         //given
         String providedString = "abcda";
         String expectedResult = "abca";
@@ -90,6 +93,26 @@ class AlgorithmsTest {
         String actualResult = algorithms.findTheLexicographicallySmallestPossibleStringByRemovingOneChar(providedString);
         //then
         assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
+    @Test
+    void shouldReturnTrueWhenOccurencesOfAAreBeforeB() {
+        //given
+        String providedInput = "aabb";
+        //when
+        boolean result = algorithms.ifOccurencesOfAAreBeforeB(providedInput);
+        //then
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    void shouldReturnFalseWhenNotAllOccurencesOfAAreBeforeB() {
+        //given
+        String providedInput = "aabba";
+        //when
+        boolean result = algorithms.ifOccurencesOfAAreBeforeB(providedInput);
+        //then
+        assertThat(result).isFalse();
     }
 
     @BeforeEach
