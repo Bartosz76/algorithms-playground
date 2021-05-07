@@ -81,6 +81,17 @@ class AlgorithmsTest {
         assertThat(result).isEqualTo(expectedResult);
     }
 
+    @Test
+    void shouldRemoveOneCharacterToCreateLexigraphicallyTheSmallestPossibleString() {
+        //given
+        String providedString = "abcda";
+        String expectedResult = "abca";
+        //when
+        String actualResult = algorithms.findTheLexicographicallySmallestPossibleStringByRemovingOneChar(providedString);
+        //then
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
     @BeforeEach
     void setUp() {
         algorithms = new Algorithms();

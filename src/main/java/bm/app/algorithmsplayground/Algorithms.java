@@ -107,4 +107,36 @@ public class Algorithms {
         return output;
     }
 
+    /**
+     * Finding the lexicographically smallest String formed by removing one character.
+     * The idea is to have a String and remove from it the character which absence will
+     * yield the smallest lexicographically String possible left.
+     *
+     */
+    public String findTheLexicographicallySmallestPossibleStringByRemovingOneChar(String providedString) {
+        int length = providedString.length();
+        String answer = "";
+        for (int i = 0; i < length - 1; i++) {
+            // Find the point where the character is larger than the one that follows.
+            if (providedString.charAt(i) > providedString.charAt(i + 1)) {
+                // At that point -> loop again and create a new String consisting of
+                // every other character that is different from the found one.
+                for (int j = 0; j < length; j++) {
+                    if (i != j) {
+                        answer += providedString.charAt(j);
+                    }
+                }
+                return answer;
+            }
+        }
+        // If we're here -> it means that no preceding element is larger than the
+        // following, so either the largest one is at the end or the String is made
+        // of identical characters. Either way -> remove that last element.
+        answer = providedString.substring(0, length - 1);
+        return answer;
+    }
+
+
+
+
 }
