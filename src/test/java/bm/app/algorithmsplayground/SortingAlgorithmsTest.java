@@ -58,6 +58,18 @@ class SortingAlgorithmsTest {
         assertThat(providedArray).isEqualTo(expectedResult);
     }
 
+    @Test
+    @DisplayName("The provided array should be sorted with the help of Bubblesort.")
+    void shouldSortTheProvidedArrayByBubbleSort() {
+        //given
+        int[] providedArray = {8, 0, 5, 0, 2, 1, 567, 23, 1};
+        int[] expectedResult = {0, 0, 1, 1, 2, 5, 8, 23, 567};
+        //when
+        sortingAlgorithms.bubbleSort(providedArray);
+        //then
+        assertThat(providedArray).isEqualTo(expectedResult);
+    }
+
     @BeforeEach
     void setUp() {
         sortingAlgorithms = new SortingAlgorithms();

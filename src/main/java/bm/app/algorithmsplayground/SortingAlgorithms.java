@@ -151,4 +151,25 @@ public class SortingAlgorithms {
             }
         }
     }
+
+    /**
+     * Bubblesort.
+     * This algorithm repeatedly swaps adjacent elements if they are in the wrong
+     * order.
+     * On every pass, two elements are being compared and swapped if need be. The
+     * algorithm repeats the loop as many times as it's capable of swapping elements
+     * and once more (it finishes when it performed a loop without swapping anything).
+     */
+    public void bubbleSort(int[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = 0; j < array.length - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    // If the first element is larger than the following - swap them.
+                    int temporary = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temporary;
+                }
+            }
+        }
+    }
 }

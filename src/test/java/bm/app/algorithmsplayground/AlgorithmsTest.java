@@ -96,6 +96,7 @@ class AlgorithmsTest {
     }
 
     @Test
+    @DisplayName("Should return true, because all occurences of A are before an occurence of B.")
     void shouldReturnTrueWhenOccurencesOfAAreBeforeB() {
         //given
         String providedInput = "aabb";
@@ -106,6 +107,7 @@ class AlgorithmsTest {
     }
 
     @Test
+    @DisplayName("Should ren false, because not all occurences of A are before an occurences of B.")
     void shouldReturnFalseWhenNotAllOccurencesOfAAreBeforeB() {
         //given
         String providedInput = "aabba";
