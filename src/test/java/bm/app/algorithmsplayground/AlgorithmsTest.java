@@ -117,6 +117,30 @@ class AlgorithmsTest {
         assertThat(result).isFalse();
     }
 
+    @Test
+    @DisplayName("Should return true when two elements of the provided array sum up to the provided number.")
+    void shouldReturnTrueIfTwoElementsOfGivenArraySumUpToProvidedNumber() {
+        //given
+        int[] providedArray = {17, 15, 4, 67, 4, 12, 15};
+        int providedNumber = 21;
+        //when
+        boolean result = algorithms.ifTwoNumbersAddingUpToInputArePresent(providedArray, providedNumber);
+        //then
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    @DisplayName("Should return false when no two elements of the provided array sum up to the provided number.")
+    void shouldReturnFalseIfNoTwoElementsOfGivenArraySumUpToProvidedNumber() {
+        //given
+        int[] providedArray = {3, 6, 9, 8, 7};
+        int providedNumber = 19;
+        //when
+        boolean result = algorithms.ifTwoNumbersAddingUpToInputArePresent(providedArray, providedNumber);
+        //then
+        assertThat(result).isFalse();
+    }
+
     @BeforeEach
     void setUp() {
         algorithms = new Algorithms();

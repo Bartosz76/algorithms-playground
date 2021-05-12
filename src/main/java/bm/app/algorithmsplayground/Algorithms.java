@@ -1,5 +1,8 @@
 package bm.app.algorithmsplayground;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Algorithms {
 
     public static void main(String[] args) {
@@ -181,5 +184,32 @@ public class Algorithms {
         } else {
             return true;
         }
+    }
+
+    /**
+     * Given a list of numbers and a number 'k', return whether any two numbers from the list
+     * add up to 'k'.
+     */
+    public boolean ifTwoNumbersAddingUpToInputArePresent(int[] providedArray, int targetNumber) {
+        if (providedArray.length == 0) {
+            return false;
+        }
+        // A map for emotional support. It allows me to iterate just once through the array.
+        Map<Integer, Integer> supportMap = new HashMap<>();
+        for (int i = 0; i < providedArray.length; i++) {
+            // A temporary variable, to store the element of the current index for following
+            // 'if' verification.
+            int current = providedArray[i];
+            // In a situation - 5 -> {2, 4, 7, 3} - in the first loop, 2 is put in the map,
+            // because the map does not have the key of the value of (5 - 2) 3. The loop
+            // repeats, current is now 4. Does the map have the value of (5 - 4) 1? No.
+            // Repeat. Is there a value of (5 - 7) -2? No. Last loop. Is there a value of
+            // (5 - 3) 2? Yes, there is! So the array contains two elements that sum up to 5.
+            if (supportMap.containsKey(targetNumber - current)) {
+                return true;
+            }
+            supportMap.put(current, i);
+        }
+        return false;
     }
 }
